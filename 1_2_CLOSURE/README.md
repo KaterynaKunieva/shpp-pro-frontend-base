@@ -40,3 +40,7 @@ const enrichText = useCsv(csvData, ",", 4, "#", 10);
 const input = "Я була в таких містах як Вінниця та АЛУШТА.";
 console.log(enrichText(input)); // Я була в таких містах як Вінниця (1 місце в ТОП-10 найбільших міст України, населення 356665 людей) та АЛУШТА.
 ```
+
+## Preview
+
+Live demo: [Github Pages](https://katerynakunieva.github.io/shpp-pro-frontend-base/1_1_CV/)
