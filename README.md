@@ -5,8 +5,10 @@ Homework projects from the first part of the Pro-Frontend course (without framew
 ## Modules
 
 1 - CV (HTML, CSS, JavaScript)
+[Github Pages](https://katerynakunieva.github.io/shpp-pro-frontend-base/1_1_CV/)
 
 2 - JavaScript Basics
+[Github Pages](https://katerynakunieva.github.io/shpp-pro-frontend-base/1_2_CLOSURE/)
 
 3 - Data Tables
 

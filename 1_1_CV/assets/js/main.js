@@ -24,7 +24,7 @@ const parseDate = (str) => {
 
 function formatDiff(start, end) {
   if (!start || !end) {
-    return `1міс.`
+    return `1mo.`
   }
   let years = end.getFullYear() - start.getFullYear();
   let months = end.getMonth() - start.getMonth();
@@ -35,12 +35,12 @@ function formatDiff(start, end) {
   }
 
   if (years === 0) {
-    return `${months}міс.`;
+    return `${months}mo.`;
   }
 
   if (months === 0) {
-    return `${years}р.`;
+    return `${years}yr.`;
   }
 
-  return `${years}р. ${months}міс.`;
+  return `${years}yr. ${months}mo.`;
 }
