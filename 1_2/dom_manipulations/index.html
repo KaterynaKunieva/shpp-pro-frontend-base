@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation</title>
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <body>
+      <!-- 1-2 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              (30 хвилин) Створити на сторінці div, вказуємо йому якийсь
+              виразний id, зробити йому такі стилі, щоб він виглядав як чорний
+              квадрат 100х100 px. Додати на сторінку кнопку, по кліку на цю
+              кнопку блок повинен зникнути. <br />
+              Зникання потрібно зробити усіма трьома способами (окрема кнопка
+              під кожен спосіб):
+              <br />
+              CSS (display: none), тобто просто навісити стиль на елемент
+              <br />
+              JS (видалення елементу)
+              <br />
+              CSS+JS (навішувати на елемент клас hidden, а в CSS прописати такі
+              стилі, щоб вони приховували все з класом hidden)
+            </p>
+            <p class="task__text">
+              (10 хвилин) Додати кнопку і зробити так, щоб по кліку на кнопку
+              блок пропадав, якщо він є, і щоб зʼявлявся, якщо він був
+              прихованим (спосіб CSS+JS).
+            </p>
+          </div>
+          <div class="task__solution">
+            <div id="square__single" class="square__black square"></div>
+            <button class="btn__primary hide__dn">
+              Delete Square (display: none)
+            </button>
+            <button class="btn__primary hide__remove_node">
+              Delete Square (remove node)
+            </button>
+            <button class="btn__primary hide__hidden_class">
+              Delete Square (add class hidden)
+            </button>
+            <button class="btn__primary toggle__square">Toggle Square</button>
+          </div>
+        </div>
+      </section>
+      <!-- 1-2 -->
+
+      <hr />
+
+      <!-- 3 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              (30 хвилин) Зробити на сторінці 5 таких блоків, дати їм всім
+              однаковий клас, завдяки якому вони всі почнуть виглядати як чорні
+              квадрати. Зробити так, щоб вони всі одночасно
+              приховувались/зʼявлялись по натиску на кнопку.
+            </p>
+          </div>
+          <div class="task__solution">
+            <div class="square__table">
+              <div class="square__to_hide square__black square"></div>
+              <div class="square__to_hide square__black square"></div>
+              <div class="square__to_hide square__black square"></div>
+              <div class="square__to_hide square__black square"></div>
+              <div class="square__to_hide square__black square"></div>
+            </div>
+            <button class="btn__primary hide__all_squares">Toggle all</button>
+          </div>
+        </div>
+      </section>
+      <!-- 3 -->
+
+      <hr />
+
+      <!-- 4 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              (30 хвилин) Додати на сторінку інпут, в який можна ввести css
+              selector (query selector) і при натиску на кнопку будуть
+              приховувались/зʼявлялись ті елементи, які відповідають цьому
+              селектору.
+            </p>
+          </div>
+          <div class="task__solution">
+            <form class="select__items-form">
+              <input
+                class="input__primary select__items-input"
+                type="text"
+                placeholder="Selector"
+              />
+              <button class="btn__primary select__items-btn" type="submit">
+                Toggle selected elements
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- 4 -->
+
+      <hr />
+
+      <!-- 5 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              (30 хвилин) Додати на сторінку жовтий квадрат, і зробити так, щоб
+              при натиску на нього вперше виводився напис "Привіт" (alert), а
+              при другому натиску цей квадрат зникав (потрібно міняти функцію
+              обробник, видаляти першу і ставити другу)
+            </p>
+          </div>
+          <div class="task__solution">
+            <div class="square__yellow square square__once__click">
+              Click me
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 5 -->
+
+      <hr />
+
+      <!-- 6 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              (30 хвилин) Додати на сторінку червоний квадрат 50х50 px, який
+              буде з'являтися як тільки людина наводить курсор на кнопку, і
+              ховатися як людина прибирає курсор з кнопки
+            </p>
+          </div>
+          <div class="task__solution">
+            <div class="square__red square hidden show__on__hover"></div>
+            <button class="btn__primary hover__to__show">Hover me</button>
+          </div>
+        </div>
+      </section>
+      <!-- 6 -->
+
+      <hr />
+
+      <!-- 7 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              (30 хвилин) Додати на сторінку зелений прямокутник 50х20 px, який
+              з'являтиметься як тільки людина фокусується на інпуті та зникати
+              як тільки людина починає писати текст у цей інпут.
+            </p>
+          </div>
+          <div class="task__solution">
+            <div class="rectangle-green hidden show__on__focus"></div>
+            <input
+              class="input__primary focus__to__show"
+              type="text"
+              id="input-toggler"
+              placeholder="Start typing"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- 7 -->
+
+      <hr />
+
+      <!-- 8 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              (30 хвилин) Додати на сторінку інпут та кнопку. Якщо в інпут
+              покласти посилання і натиснути на кнопку, то на сторінці з'явиться
+              картинка отримана за посиланням, яке ввели в інпут.
+            </p>
+          </div>
+          <div class="task__solution">
+            <img
+              src=""
+              class="dynamic__img-view"
+              alt="Enter valid URL to see the result"
+            />
+            <form>
+              <input
+                class="input__primary dynamic__img-input"
+                type="text"
+                placeholder="URL to some picture"
+              />
+              <button class="btn__primary show-picture dynamic__img-submit">
+                Show picture
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- 8 -->
+
+      <hr />
+
+      <!-- 9 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              (30 хвилин) Перетворити інпут на textarea, в яку можна вводити
+              посилання, кожне з нового рядка. При натисканні на кнопку на
+              сторінці з'явиться стільки картинок, скільки посилань ввели в
+              textarea (картинки беруться за посиланнями).
+            </p>
+          </div>
+          <div class="task__solution">
+            <div class="img__urls-table"></div>
+            <form>
+              <textarea
+                name="textarea-picture-urls"
+                id="textarea-picture-urls"
+                class="img__urls-textarea textarea__primary"
+                placeholder="URLs to pictures divided by new line"
+              ></textarea>
+              <button class="btn__primary img__urls-btn">Show pictures</button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- 9 -->
+
+      <hr />
+
+      <!-- 13 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              (45 хвилин) Додати на сторінку три блоки і зробити текст усередині
+              них, який можна редагувати як в інпуті (але щоб це був не нативний
+              інпут). Те, що людина введе в ці "інпути", має в них і залишатися
+              при перезавантаженні сторінки (onload подія).
+              <br />
+              для першого використовувати localStorage
+              <br />
+              для другого використовувати cookies
+              <br />
+              для третього використовувати sessionStorage
+              <br />
+              Загугліть у чому відмінність між цими способами.
+            </p>
+          </div>
+          <div class="task__solution">
+            <p>
+              Store value to localstorage (available on site until manual
+              deleting):
+            </p>
+            <div
+              class="input__manual input__primary input__localstorage"
+              id="input-localstorage"
+            >
+              <div class="input__manual-inner"></div>
+              <span class="input__manual-cursor"></span>
+            </div>
+            <p>
+              Store value to cookies (available during browser session by
+              default or until max-age):
+            </p>
+            <div
+              class="input__manual input__primary input__cookies"
+              id="input-cookies"
+            >
+              <div class="input__manual-inner"></div>
+              <span class="input__manual-cursor"></span>
+            </div>
+            <p>
+              Store value to session storage (available during page session):
+            </p>
+            <div
+              class="input__manual input__primary input__sessionstorage"
+              id="input-sessionstorage"
+            >
+              <div class="input__manual-inner"></div>
+              <span class="input__manual-cursor"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 13 -->
+
+      <hr />
+
+      <!-- 15 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              Зробити два блоки, один усередині іншого. Навішати на кожен із них
+              слухач кліку, який викликає алерт. Зробити так щоб при натисканні
+              на маленький викликався лише один алерт.
+            </p>
+          </div>
+          <div class="task__solution">
+            <div class="outer__click square__black square">
+              <div class="inner__click rectangle-green"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 15 -->
+
+      <hr />
+
+      <!-- 16 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              (30 хвилин) Зробити кнопку, по натисканні на яку з'являється
+              напівпрозорий сірий квадрат на весь екран і не можна було скролити
+              сторінку поки він не сховається. Приховувати квадрат після
+              натискання на нього.
+            </p>
+          </div>
+          <div class="task__solution">
+            <button class="btn__primary click__open__shadow">
+              Open Shadow
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- 16 -->
+
+      <hr />
+
+      <!-- 17 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              (10 хвилин) Дано:
+              <code>
+                &lt;form&gt;&lt;input type="submit" value="GO"/&gt;&lt;/form&gt;
+              </code>
+              Зробити так, щоб при натисканні на кнопку "GO" не
+              перезавантажувалася сторінка.
+            </p>
+          </div>
+          <div class="task__solution">
+            <form class="prevent__reload">
+              <input class="btn__primary" type="submit" value="GO" />
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- 17 -->
+
+      <hr />
+
+      <!-- 18 -->
+      <section class="task__section">
+        <div class="container">
+          <div class="task__assignment">
+            <p class="task__text">
+              * (1 година) Зробити гарний інпут type="file". Зробити, щоб при
+              перетягуванні файлу на цей інпут він красиво змінювався
+              (drag-n-drop). Ну і коли файл вже вибрано теж.
+            </p>
+          </div>
+          <div class="task__solution">
+            <div class="drag__n__drop-container">
+              <input class="drag__n__drop-input" multiple type="file" />
+              <i class="fa-solid fa-file-arrow-up fa-2xl"></i>
+              <ul class="drag__n__drop-list"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- 18 -->
+
+      <!-- 14 -->
+      <button class="btn__primary scroll__top show__on__scroll">
+        Back to TOP
+      </button>
+
+      <div class="info__block">
+        <!-- 10 -->
+        <div class="info__block-rows">
+          <p>X: <span class="insert__mouse-x">0</span>,</p>
+          <p>Y: <span class="insert__mouse-y">0</span></p>
+        </div>
+        <!-- 11 -->
+        <p class="insert__language"></p>
+        <!-- 12 -->
+        <div class="info__block-rows">
+          <p>Ш: <span class="insert__latitude">loading...</span></p>
+          <p>Д: <span class="insert__longtitude">loading...</span></p>
+        </div>
+      </div>
+
+      <!-- 16 -->
+      <div id="shadow" class="fullscreen-shadow"></div>
+    </body>
+    <script src="assets/js/domManipulations.js"></script>
+  </body>
+</html>

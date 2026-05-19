@@ -43,4 +43,4 @@ console.log(enrichText(input)); // Я була в таких містах як �
 
 ## Preview
 
-Live demo: [Github Pages](https://katerynakunieva.github.io/shpp-pro-frontend-base/1_1_CV/)
+Live demo: [Github Pages](https://katerynakunieva.github.io/shpp-pro-frontend-base/1_2/csv_parser)

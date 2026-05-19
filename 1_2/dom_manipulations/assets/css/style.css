@@ -1,0 +1,314 @@
+/* task-solution design */
+.task__section {
+  margin: 60px auto;
+}
+@media (max-width: 600px) {
+  .task__section:first-child {
+    margin-top: 120px;
+  }
+}
+.container {
+  width: 750px;
+  max-width: calc(100% - 20px);
+  margin: 0 auto;
+}
+.task__text {
+  color: grey;
+  margin-bottom: 15px;
+}
+.task__solution {
+  background-color: rgb(211, 211, 211, 0.5);
+  padding: 60px 20px 20px;
+  margin: 20px auto;
+  position: relative;
+}
+.task__solution::before,
+.task__assignment::before {
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  font-weight: 700;
+}
+.task__solution::before {
+  content: "Solution";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.task__assignment::before {
+  content: "Assignment";
+  margin-bottom: 10px;
+}
+/* task-solution design */
+
+/* solution */
+.square {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+}
+.square__black {
+  background: #000;
+}
+.square__table {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.square__table .square {
+  margin: 0;
+}
+.square__yellow {
+  background: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.square__red {
+  background: red;
+}
+.hidden {
+  visibility: hidden;
+}
+.btn__primary {
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+  min-height: 40px;
+  border: none;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  background: lightblue;
+  cursor: pointer;
+}
+.input__primary,
+.textarea__primary {
+  margin: 20px auto;
+  padding: 10px;
+}
+.input__primary {
+  height: 30px;
+}
+.textarea__primary {
+  width: 100%;
+  resize: vertical;
+  height: 200px;
+}
+.rectangle-green {
+  width: 50px;
+  height: 20px;
+  background: green;
+  margin: 20px auto;
+}
+.dynamic__img-view {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  max-width: 100%;
+}
+.img__urls-table {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  --cols: 4;
+}
+.img__urls-table img {
+  width: calc((100% - 10px * (var(--cols) - 1)) / var(--cols));
+}
+@media (max-width: 750px) {
+  .img__urls-table {
+    --cols: 3;
+  }
+}
+@media (max-width: 500px) {
+  .img__urls-table {
+    --cols: 2;
+  }
+}
+.info__block {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: black;
+  color: #fff;
+  padding: 10px 14px;
+  width: 400px;
+  max-width: 100%;
+}
+.info__block-rows {
+  display: flex;
+  gap: 0 10px;
+  flex-wrap: wrap;
+}
+.input__manual {
+  cursor: pointer;
+  padding: 10px;
+  margin: 20px auto;
+  background: #fff;
+  font-size: 16px;
+  line-height: 120%;
+  height: 40px;
+}
+.input__manual-inner {
+  display: inline-block;
+}
+.input__manual-cursor {
+  display: inline-block;
+  width: 1px;
+  height: 100%;
+  margin-left: -3px;
+}
+.focus .input__manual-cursor {
+  background: #000;
+  animation: cursorAnimation 1s steps(1) infinite;
+}
+@keyframes cursorAnimation {
+  50% {
+    opacity: 0;
+  }
+}
+
+.scroll__top {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+}
+.show__on__scroll {
+  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+.show__on__scroll.show {
+  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  -o-transform: translateY(0%);
+}
+
+.outer__click {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.fullscreen-shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+.show-shadow .fullscreen-shadow {
+  z-index: 100;
+  opacity: 1;
+}
+body.show-shadow {
+  overflow: hidden;
+  height: 100%;
+}
+
+.drag__n__drop-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+}
+.drag__n__drop-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+  padding: 10px;
+  background-color: rgb(173, 216, 230, 0.3);
+  border: 2px dashed grey;
+  cursor: pointer;
+  margin: 30px auto;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.drag__n__drop-container.dragover {
+  background-color: rgb(173, 216, 230, 1);
+}
+:not(:has(.drag__n__drop-file)) .drag__n__drop-list {
+  display: none;
+}
+.drag__n__drop-container .fa-file-arrow-up {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.drag__n__drop-container.dragover .fa-file-arrow-up {
+  display: block;
+}
+:has(.drag__n__drop-file) .fa-file-arrow-up {
+  display: none;
+}
+.drag__n__drop-list {
+  width: 100%;
+}
+.drag__n__drop-file {
+  padding: 20px 30px 20px 10px;
+  color: grey;
+  border-bottom: 1px solid grey;
+  position: relative;
+}
+.drag__n__drop-file:after {
+  content: "\f2ed";
+  font-family: "Font Awesome 7 Free";
+  color: red;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  opacity: 0;
+}
+.drag__n__drop-file:hover:after {
+  opacity: 1;
+}
+.drag__n__drop-file:hover {
+  background: rgb(255, 0, 0, 0.2);
+}
