@@ -1,0 +1,37 @@
+.data_table {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  text-align: center;
+  overflow-x: auto;
+  color: rgb(85, 85, 85);
+}
+.data_table_head,
+.data_table_body {
+  display: block;
+  width: 100%;
+}
+.data_table_head .data_table_cell,
+.data_table_body .data_table_row:nth-child(2n) .data_table_cell {
+  background: rgb(239, 239, 239);
+}
+.data_table_row:first-child .data_table_cell {
+  border-top: 1px solid grey;
+}
+.data_table_row {
+  display: grid;
+  grid-template-columns: repeat(var(--cols-amount), 1fr);
+}
+.data_table_cell + .data_table_cell,
+.data_table_cell:first-child {
+  border-left: 1px solid grey;
+}
+.data_table_cell:last-child {
+  border-right: 1px solid grey;
+}
+.data_table_cell {
+  padding: 10px;
+  min-width: 120px;
+  overflow-wrap: break-word;
+  border-bottom: 1px solid grey;
+}

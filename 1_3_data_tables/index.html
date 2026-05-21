@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data tables</title>
+    <link rel="stylesheet" href="assets/css/table.css" />
+    <link
+      href="https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section>
+      <h2>Тест 1: Базова таблиця</h2>
+      <div id="table1"></div>
+      <h2>За версією Tabulator:</h2>
+      <div id="usersTable"></div>
+    </section>
+
+    <section>
+      <h2>Тест 2: Порожній body (очікується тільки header)</h2>
+      <div id="table2"></div>
+    </section>
+
+    <section>
+      <h2>Тест 3: Порожній header (0 колонок)</h2>
+      <div id="table3"></div>
+    </section>
+
+    <section>
+      <h2>Тест 4: Частково відсутні поля в рядках</h2>
+      <div id="table4"></div>
+    </section>
+
+    <section>
+      <h2>Тест 5: 20 колонок</h2>
+      <div id="table5"></div>
+    </section>
+
+    <section>
+      <h2>Тест 6: 500 рядків (продуктивність)</h2>
+      <div id="table6"></div>
+    </section>
+
+    <section>
+      <h2>Тест 7: Одна колонка</h2>
+      <div id="table7"></div>
+    </section>
+
+    <section>
+      <h2>Тест 8: Дуже довгий текст (перевірка переносу)</h2>
+      <div id="table8"></div>
+    </section>
+
+    <section>
+      <h2>Тест 9: HTML та спеціальні символи</h2>
+      <div id="table9"></div>
+    </section>
+
+    <section>
+      <h2>Тест 10: null / undefined / false / NaN / порожній рядок</h2>
+      <div id="table10"></div>
+    </section>
+
+    <script src="assets/js/table.js"></script>
+
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js"
+    ></script>
+    <script src="assets/js/tabulator.js"></script>
+  </body>
+</html>
