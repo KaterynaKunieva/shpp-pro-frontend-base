@@ -7,7 +7,7 @@ function DataTable(config, data) {
   table.classList.add("data_table");
   root.appendChild(table);
 
-  let columnIds = []; // ordered column ids ("value" from config object) 
+  const columnIds = []; // ordered column ids ("value" from config object) 
 
   if (config.columns?.length > 0) {
     setColsAmount(config.columns.length);
