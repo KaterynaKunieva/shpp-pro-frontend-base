@@ -15,7 +15,7 @@ function useCsv(csv, separator = ",", colsAmount = 4, commentSign = "#", top = 1
   const parsedData = csv
     .split("\n")
     .filter(line => isCsvData(line, commentSign, separatorRegexp, colsAmount))
-    .map(line => mapArrToObj(line.trim().split(separator)))
+    .map(line => parseCityInfo(line))
     .sort((city1, city2) => city2.population - city1.population)
     .slice(0, top)
     .reduce((acc, el, index) => ({
@@ -51,11 +51,12 @@ function isCsvData(line, commentSign, separatorRegexp, colsAmount) {
 }
 
 /**
- * Maps array of city info to associative array
- * @param {*} arr - [x, y, name, population]
+ * Parses city info from CSV-line to associative array
+ * @param {*} line - CSV line in format: x, y, name, population,
  * @returns associative array {x, y, name, population}
  */
-function mapArrToObj(arr) {
+function parseCityInfo(line) {
+  const arr = line.trim().split(separator);
   return {
     x: parseNumeric(arr[0].trim()),
     y: parseNumeric(arr[1].trim()),
@@ -70,8 +71,8 @@ function mapArrToObj(arr) {
  * @returns number, if string valid, null - if invalid
  */
 function parseNumeric(str) {
-  const numeric = parseFloat(str);
-  return isNaN(numeric) ? null : numeric;
+  const numeric = Number.parseFloat(str);
+  return Number.isNaN(numeric) ? null : numeric;
 }
 
 /**
@@ -106,9 +107,17 @@ function stringifyCity(obj, top) {
   return `${obj.rating} місце в ТОП-${top} найбільших міст України, населення ${getPeopleString(obj.population)}`;
 }
 
-const csvData = `  48.30,32.16,Кропивницький,200000,
-  49.15,28.41,Вінниця,356665,
-  44.38,34.33,Алушта,31440`;
+const csvData = `48.30,32.16,Кропивницький,200000,
+44.38,34.33,Алушта,31440,
+49.46,30.17,Біла Церква,200131,
+49.54,28.49,Бердичів,87575,#некоммент
+
+#
+46.49,36.58,#Бердянськ,121692,
+49.15,28.41,Вінниця,356665,
+#45.40,34.29,Джанкой,43343,
+
+# в цьому файлі три рядки-коментаря :)`;
 
 const enrichText = useCsv(csvData, ",", 4, "#", 10);
 
