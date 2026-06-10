@@ -1,0 +1,39 @@
+.color_label,
+.data_table_input[type="color"] {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: 1px solid black;
+}
+.data_table_input[type="color"] {
+  padding: 0;
+}
+.data_table_input[type="color"]::-webkit-color-swatch-wrapper {
+  border: none;
+  padding: 0;
+}
+.data_table_input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+.data_table_label:has([type="color"]) .data_table_label_text {
+  transform: translate(-50%, -100%);
+  -webkit-transform: translate(-50%, -100%);
+  -moz-transform: translate(-50%, -100%);
+  -ms-transform: translate(-50%, -100%);
+  -o-transform: translate(-50%, -100%);
+}
+.section_primary {
+  padding: 15px;
+}
+.section_divider {
+  margin: 40px auto;
+}
+.data_table {
+  position: relative;
+  border-collapse: collapse;
+}
