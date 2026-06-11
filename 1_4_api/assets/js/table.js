@@ -1,10 +1,7 @@
 async function DataTable(config, data = []) {
 
   const context = {
-    config: {
-      ...config,
-      columns: normalizeColumns(config.columns, data),
-    },
+    config,
     state: {
       data,
       sort: {
@@ -31,6 +28,7 @@ async function DataTable(config, data = []) {
       doDelete: (id) => actions.execute(() => api.deleteRow(id)),
     });
   } else {
+    context.config.columns = normalizeColumns(config.columns, context.state.data);
     tableCreator = useTable({
       ...context,
     });
@@ -41,6 +39,22 @@ async function DataTable(config, data = []) {
 }
 
 function normalizeColumns(columns, data) {
+
+  function getSortOption(column) {
+    const COMPARABLE_INPUT_TYPES = [
+      "text",
+      "number",
+    ];
+    let option = typeof column.value === "function" ? null : column.value;
+    if (!option && column?.input) {
+      if (Array.isArray(column.input)) {
+        option = column.input.find(i => COMPARABLE_INPUT_TYPES.includes(i.type.toLowerCase()))?.name;
+      } else {
+        option = COMPARABLE_INPUT_TYPES.includes(column.input.type.toLowerCase()) ? column.input.name : null;
+      }
+    }
+    return option;
+  }
 
   function onlyUnique(value, index, array) {
     return array.indexOf(value) === index;
@@ -78,6 +92,9 @@ function normalizeColumns(columns, data) {
         newCol.input = normalizeInput(columnInput, column);
       }
     }
+
+    // sortOption 
+    newCol.sortOption = getSortOption(column);
 
     // value to function
     const columnValue = newCol.value;
@@ -241,11 +258,10 @@ function useTable({ config, state, doCreate, doUpdate, doDelete }) {
     thead.appendChild(tr);
     config.columns.forEach(column => {
       const th = dom.headCell(tr, column?.title || "");
-      const sortOption = sorter.getSortOption(column);
-      if (sortOption) {
+      if (column.sortOption) {
         th.classList.add("data_table_sort");
         th.onclick = () => {
-          state.sort.column = sortOption;
+          state.sort.column = column.sortOption;
           state.sort.direction *= -1;
           if (state.sort.direction === -1) {
             th.classList.add("desc");
@@ -322,7 +338,7 @@ function useTable({ config, state, doCreate, doUpdate, doDelete }) {
       sorter.sort(state.data, state.sort.column, state.sort.direction);
     }
     // clean layout
-    if (doCreate) {
+    if (doCreate && inputs.getColumnInputs()?.length > 0) {
       [...tbody.querySelectorAll(".data_table_row")].slice(1).forEach(r => r.remove());
     } else {
       [...tbody.querySelectorAll(".data_table_row")].forEach(r => r.remove());
@@ -607,23 +623,6 @@ function createApi(url) {
 
 function createSorter() {
 
-  const COMPARABLE_INPUT_TYPES = [
-    "text",
-    "number",
-  ];
-
-  function getSortOption(column) {
-    let option = null;
-    if (column?.input) {
-      if (Array.isArray(column.input)) {
-        option = column.input.find(i => COMPARABLE_INPUT_TYPES.includes(i.type.toLowerCase()))?.name;
-      } else {
-        option = COMPARABLE_INPUT_TYPES.includes(column.input.type.toLowerCase()) ? column.input.name : null;
-      }
-    }
-    return option;
-  }
-
   function sort(data, option, direction) {
     data.sort((a, b) => {
       if (a[option] > b[option]) return direction;
@@ -634,7 +633,6 @@ function createSorter() {
   }
 
   return {
-    getSortOption,
     sort
   }
 

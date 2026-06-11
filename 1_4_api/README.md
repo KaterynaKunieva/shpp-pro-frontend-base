@@ -112,7 +112,8 @@ DataTable({ parent: "#headlessTable" }, [
 
 ### Notes:
 
-- column value can be a string: a key to search field in data object
+- column value can be a string: a key to search field in data object; and a function: is must take as argument data object and return value to be rendered;
+- to enable sorting the column must have a string as a name or input with a name and sortable type (string or number)
 - input can be an object or array of objects
 - name of input is a key in data
 
