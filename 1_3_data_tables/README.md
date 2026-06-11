@@ -24,3 +24,7 @@ const data = [
 
 DataTable(config, data);
 ```
+
+## Preview
+
+Live demo: [Github Pages](https://katerynakunieva.github.io/shpp-pro-frontend-base/1_3_data_tables)
