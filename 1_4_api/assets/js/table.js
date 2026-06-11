@@ -6,7 +6,7 @@ async function DataTable(config, data = []) {
       data,
       sort: {
         column: null,
-        direction: 1, // 1 = desc; -1 = asc;
+        direction: 1, // 1 = asc; -1 = desc;
       }
     }
   };
@@ -17,7 +17,7 @@ async function DataTable(config, data = []) {
     const api = createApi(config.apiUrl);
     context.state.data = await api.fetchAll();
     context.config.columns = normalizeColumns(config.columns, context.state.data);
-    const actions = useActions(api, async () => {
+    const actions = useActions(async () => {
       context.state.data = await api.fetchAll();
       tableCreator.renderContent();
     });
@@ -106,7 +106,7 @@ function normalizeColumns(columns, data) {
   }) || [];
 }
 
-function useActions(api, reload) {
+function useActions(reload) {
   async function execute(requestFn) {
     try {
       await requestFn();
@@ -624,12 +624,25 @@ function createApi(url) {
 function createSorter() {
 
   function sort(data, option, direction) {
-    data.sort((a, b) => {
-      if (a[option] > b[option]) return direction;
-      else if (a[option] < b[option]) return -1 * direction;
-      return 0;
+    return data.sort((a, b) => {
+      let valA = a[option];
+      let valB = b[option];
+
+      const isNumA = !isNaN(parseFloat(valA)) && isFinite(valA);
+      const isNumB = !isNaN(parseFloat(valB)) && isFinite(valB);
+
+      let comparison = 0;
+
+      if (isNumA && isNumB) {
+        comparison = Number(valA) - Number(valB);
+      } else {
+        valA = String(valA ?? '');
+        valB = String(valB ?? '');
+        comparison = valA.localeCompare(valB, undefined, { numeric: true, sensitivity: 'base' });
+      }
+
+      return direction === -1 ? -comparison : comparison;
     });
-    direction *= -1;
   }
 
   return {

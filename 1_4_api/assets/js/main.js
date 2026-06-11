@@ -1,7 +1,18 @@
 import DataTable from './table.js';
 
 function getAge(date) {
-  return Math.floor((Date.now() - new Date(date)) / (1000 * 60 * 60 * 24));
+  const from = new Date(date);
+  const to = new Date();
+
+  let years = to.getFullYear() - from.getFullYear();
+  let months = to.getMonth() - from.getMonth();
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  return `${years}y. ${months}m.`;
 }
 
 function getColorLabel(color) {
