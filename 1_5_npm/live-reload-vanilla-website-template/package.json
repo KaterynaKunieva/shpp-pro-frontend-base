@@ -8,18 +8,20 @@
   "scripts": {
     "dev:assets": "webpack --watch",
     "dev": "live-server --open=./public/ --host=localhost --watch=./public/",
-    "build": "NODE_ENV=production webpack",
-    "prepare": "npx crlf --set=LF node_modules/.bin/live-server"
+    "build": "cross-env NODE_ENV=production webpack",
+    "prepare": "npx crlf --set=LF node_modules/.bin/live-server", 
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.0",
     "concurrently": "^7.6.0",
+    "cross-env": "^10.1.0",
     "css-loader": "^6.7.3",
     "live-server": "^1.2.2",
     "mini-css-extract-plugin": "^2.7.2",
-    "node-sass": "^7.0.0",
     "postcss": "^8.4.20",
     "postcss-loader": "^7.0.2",
     "postcss-preset-env": "^7.8.0",
@@ -40,5 +42,8 @@
     "ES6+",
     "live reload",
     "Sass"
-  ]
+  ],
+  "dependencies": {
+    "sass": "^1.101.0"
+  }
 }
