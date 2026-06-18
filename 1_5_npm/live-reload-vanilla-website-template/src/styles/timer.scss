@@ -1,0 +1,66 @@
+.timer {
+  box-sizing: border-box;
+  display: block;
+  margin: 20px auto;
+  padding: 0 20px;
+  max-width: 100%;
+  text-align: center;
+
+  .count-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .content {
+    margin: 10px auto;
+  }
+  .decrease,
+  .increase {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    line-height: 100%;
+    width: 20px;
+    height: 20px;
+    aspect-ratio: 1 / 1;
+  }
+  .time {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .text {
+    font-weight: 500;
+    margin: 0;
+  }
+  .time-input {
+    display: inline;
+    border: none;
+    padding: 0;
+    outline: none;
+    text-align: center;
+    width: 50px;
+  }
+  .btn {
+    background: green;
+    border: 2px solid #000;
+    cursor: pointer;
+    color: white;
+    padding: 2 15px;
+  }
+  .form {
+    display: block;
+  }
+  .view {
+    display: none;
+  }
+}
+.timer.count {
+  .form {
+    display: none;
+  }
+  .view {
+    display: block;
+  }
+}

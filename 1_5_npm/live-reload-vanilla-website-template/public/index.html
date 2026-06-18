@@ -1,31 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>No Framework Website</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>No Framework Website</title>
+    <link rel="stylesheet" href="./assets/styles/main.css" />
+  </head>
 
-  <link rel="stylesheet" href="./assets/styles/main.css">
-</head>
-
-<body>
-  <div class="wrapper">
-    <header>
-      <h1>No Framework Website</h1>
-    </header>
-    <main>
-      <h2>This site rocks 🤘🤘</h2>
-      <div class="bacon">
-        <img src="./assets/images/oval.svg" alt="loading">
-      </div>
-    </main>
-    <footer>
-      <p>Made with ❤️ by <a href="https://twitter.com/_esausilva" target="_blank">Esau Silva</a></p>
-    </footer>
-  </div>
-  <script src="./assets/scripts/bundle.js"></script>
-</body>
-
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>No Framework Website</h1>
+      </header>
+      <main>
+        <div class="timer">
+          <h3>Timer</h3>
+          <form class="form">
+            <p class="text">Set time in minutes</p>
+            <div class="count-input content">
+              <div class="text decrease">-</div>
+              <input
+                class="time time-input"
+                name="minutes"
+                value="5"
+                readonly
+              />
+              <div class="text increase">+</div>
+            </div>
+            <button type="submit" class="btn start">Start</button>
+          </form>
+          <div class="view">
+            <div class="text">Left</div>
+            <div class="time time-output content"></div>
+            <button class="btn reset">Reset</button>
+          </div>
+        </div>
+        <h2>This site rocks 🤘🤘</h2>
+        <div class="bacon">
+          <img src="./assets/images/oval.svg" alt="loading" />
+        </div>
+      </main>
+      <footer>
+        <p>
+          Made with ❤️ by
+          <a href="https://twitter.com/_esausilva" target="_blank"
+            >Esau Silva</a
+          >
+        </p>
+      </footer>
+    </div>
+    <script src="./assets/scripts/bundle.js"></script>
+  </body>
 </html>
