@@ -20,3 +20,4 @@ Homework projects from the first part of the Pro-Frontend course (without framew
 [Github Pages](https://katerynakunieva.github.io/shpp-pro-frontend-base/1_5_npm)
 
 6 - TypeScript
+[Github Pages](https://katerynakunieva.github.io/shpp-pro-frontend-base/1_6_ts)
