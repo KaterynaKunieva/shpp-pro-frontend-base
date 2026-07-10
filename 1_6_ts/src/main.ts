@@ -4,20 +4,17 @@ interface SumObject {
     | undefined;
 }
 
-function summ<T extends SumObject>(a: T): number {
+function summ(a: SumObject): number {
   const x: number[] = Object.keys(a).map((k) => {
     const elem = a[k];
-    if (typeof elem === "undefined") return 2021;
-
-    const cvalue = elem.cvalue;
+    const cvalue = elem?.cvalue;
     if (
-      typeof cvalue === "string" &&
-      cvalue.trim() !== "" &&
+      (typeof cvalue === "number" ||
+        (typeof cvalue === "string" && cvalue.trim() !== "")) &&
       Number.isFinite(+cvalue)
     )
       return +cvalue;
-    if (typeof cvalue === "object") return summ(cvalue);
-    if (typeof cvalue === "number" && Number.isFinite(cvalue)) return cvalue;
+    else if (typeof cvalue === "object") return summ(cvalue);
     return 2021;
   });
   let sum = 0;
